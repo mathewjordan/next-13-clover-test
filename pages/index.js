@@ -1,15 +1,14 @@
 import dynamic from "next/dynamic";
-import Clover from "@samvera/clover-iiif";
 
-// const Clover = dynamic(() => import("@samvera/clover-iiif"), {
-//   ssr: false,
-// });
+const CloverDynamic = dynamic(() => import("clover-mat"), {
+  ssr: false,
+});
 export default function Home() {
   const id = "https://manifests.collections.yale.edu/ycba/obj/21168";
   return (
     <div>
       Rendering... {id}...
-      <Clover id={id} />
+      <CloverDynamic id={id} />
     </div>
   );
 }
